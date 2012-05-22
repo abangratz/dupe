@@ -215,8 +215,8 @@ describe Dupe do
       proc { Dupe.find }.should raise_error(ArgumentError)
     end
 
-    it "should require the model to exist" do
-      proc { Dupe.find :unknown_models }.should raise_error(Dupe::Database::TableDoesNotExistError)
+    it "should return an empty array if the model does not exist" do
+      Dupe.find( :unknown_models ).should == []
     end
 
     it "should return an array if you ask for a plural model (e.g., Dupe.find :books)" do

@@ -45,7 +45,7 @@ class Dupe
     # conditions (e.g., {|b| b.genre == 'Science Fiction'})
     # and recieve a (possibly empty) array of results
     def select(model_name, conditions=nil)
-      raise TableDoesNotExistError, "The table ':#{model_name}' does not exist." unless @tables[model_name]
+      return [] unless @tables[model_name]
       raise(
         InvalidQueryError, 
         "There was a problem with your select conditions. Please consult the API."

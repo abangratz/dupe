@@ -89,12 +89,9 @@ describe Dupe::Database do
       @database.insert @book
     end
     
-    it "should require a valid model name" do
+    it "should require a model name" do
       proc { @database.select }.should raise_error(ArgumentError)
-      proc { @database.select :undefined_model }.should raise_error(
-        Dupe::Database::TableDoesNotExistError,
-        "The table ':undefined_model' does not exist."
-      )
+      proc { @database.select :undefined_model }.should_not raise_error
       proc { @database.select :book }.should_not raise_error
     end
     
