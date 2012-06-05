@@ -15,17 +15,4 @@ describe String do
     end
   end
   
-  describe "indent" do
-    it "should default the indentional level to 2 spaces" do
-      'apples'.indent.should == "  apples"
-    end
-    
-    it "should accept an indentional level" do
-      'apples'.indent(4).should == "    apples"
-    end
-    
-    it "should indent each line of the string" do
-      "apples\noranges".indent(2).should == "  apples\n  oranges"
-    end
-  end
 end

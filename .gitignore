@@ -2,3 +2,5 @@ coverage
 *.sw?
 pkg/*
 *.gem
+vendor
+.bundle/

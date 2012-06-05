@@ -13,7 +13,7 @@ class Dupe
         
         def pretty_print
           "Request: #{@verb.to_s.upcase} #{@path}\n" +
-          "Response:\n" + @response_body.indent
+          "Response:\n" + StringFormatter.indent(@response_body)
         end
       end
       
@@ -27,7 +27,7 @@ class Dupe
       end
       
       def pretty_print
-        "Logged Requests:\n" + requests.map {|r| r.pretty_print.indent }.join("\n\n") + "\n\n"
+        "Logged Requests:\n" + requests.map {|r| StringFormatter.indent(r.pretty_print) }.join("\n\n") + "\n\n"
       end
       
       def reset #:nodoc:
